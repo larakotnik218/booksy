@@ -1,6 +1,10 @@
-<h1>Editing Book</h1>
-
-<%= render 'form', book: @book %>
-
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <h1 class="title is-3">Editing Book</h1>
+        <%= render 'form', book: @book %>
+      </div>
+    </div>
+  </div>
+</section>
