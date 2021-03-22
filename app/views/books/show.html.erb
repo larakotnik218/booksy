@@ -1,24 +1,68 @@
-<p id="notice"><%= notice %></p>
+<div class="columns pt4 pb7">
+  <div class="column is-7 is-offset-1">
 
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+    <p class="f7"><i class="fa fa-clock"></i> Posted <%= time_ago_in_words(@book.created_at) %> ago</p>
+    <h1 class="title is-2"><%= @book.title %></h1>
+     <h5> <%= genre(@book.genre) %> </h5>
+     <ul class="list pb4">
 
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
 
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.ISBN %>
-</p>
+  </ul>
 
-<p>
-  <strong>Year:</strong>
-  <%= @book.year %>
-</p>
+    <!-- <ul class="list pb4">
+      <li class="inline-block f6 pr2"><#%= job_type(@job.job_type) %></li>
+      <li class="inline-block f6 ph2"><i class="fa fa-pin"></i> <#%= @job.location %></li>
+      <#% if @job.remote_ok? %>
+        <li class="inline-block f6 ph2"><i class="fa fa-wifi"></i> Remote Job</li>
+      <#% end %>
+    </ul> -->
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>
+    <div class="content text-serif f4">
+      <%= @book.description.html_safe %>
+    </div>
+
+    <%= link_to 'I am interested', class:"button is-rounded is-large is-fullwidth is-primary" %>
+
+  </div>
+
+  <div class="column is-2 is-offset-1 has-text-centered">
+
+    <% if !@book.avatar.file.nil? %>
+      <%=  image_tag(@book.avatar_url(:thumb), alt:"", class: "has-text-centered") %>
+    <% end %>
+
+    <div>
+      <b> Book title </b>
+    <p>  <h5 class="is-5 has-text-centered"><%=  @book.title %></h5> </p>
+      </div>
+
+      <div>
+        <b> Genre </b>
+      <p>  <h5 class="is-5 has-text-centered"><%=  @book.genre %></h5> </p>
+        </div>
+
+      <div>
+          <b> year </b>
+        <p>  <h5 class="is-5 has-text-centered"><%=  @book.year %></h5> </p>
+          </div>
+
+
+
+
+
+
+     <!-- link_to 'Apply to this job', @job.apply_url, class:"button is-rounded is-fullwidth is-link" %> -->
+    <!-- if current_user.try(:admin) || book_seller(@book) -->
+    <% if current_user == @book.user || current_user.try(:admin) %>
+      <ul class="pv3">
+        <li class="pv1 f6">Admin controls: </li>
+        <li class="pv1 inline-block">
+          <%= link_to 'View', @book, class: 'button is-small  is-outlined is-primary' %></li>
+        <li class="pv1 inline-block">
+          <%= link_to 'Edit', edit_book_path(@book), class: 'button is-small  is-outlined is-primary' %></li>
+        <li class="pv1 inline-block">
+          <%= button_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button is-small  is-outlined is-primary' %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>
