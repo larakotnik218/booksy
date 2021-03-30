@@ -4,6 +4,11 @@
 .index-title {
   margin-bottom: 10px !important;
   a {
-    color: dark;
+    color: #8c8989;
+    transition: 0.5s;
+  }
+
+  a:hover {
+    color: #2b2b2b;
   }
 }

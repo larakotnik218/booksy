@@ -29,7 +29,7 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.build(book_params)
 
-    
+
 
 
 
@@ -78,4 +78,6 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:title, :description, :ISBN, :year, :avatar, :genre)
     end
+
+
   end
