@@ -3,36 +3,43 @@
 
   <ul class="mb3 pa0">
     <li class="pv1">
-      <%= link_to 'All', books_path, class: "button is-fullwidth is-dark" %>
+      <%= link_to 'All', books_path, class: "button is-fullwidth is-light is-primary" %>
     </li>
 
     <li class="pv1">
-      <%= link_to 'Romance', books_path(genre: "Romance"), class: "button is-fullwidth is-primary" %>
+      <%= link_to 'Action', books_path(genre: "Action"), class: "button is-fullwidth is-link" %>
     </li>
 
     <li class="pv1">
-      <%= link_to 'Drama', books_path(genre: "Drama"), class: "button is-fullwidth is-link" %>
-    </li>
-
-    <li class="pv1">
-      <%= link_to 'Horror', books_path(genre: "Horror"), class: "button is-fullwidth is-warning" %>
+      <%= link_to 'Biography', books_path(genre: "Biography"), class: "button is-fullwidth is-dark" %>
     </li>
 
     <li class="pv1">
       <%= link_to 'Crime', books_path(genre: "Crime"), class: "button is-fullwidth is-info" %>
     </li>
+
     <li class="pv1">
-      <%= link_to 'Action', books_path(genre: "Action"), class: "button is-fullwidth is-success" %>
+      <%= link_to 'Drama', books_path(genre: "Drama"), class: "button is-fullwidth is-success" %>
     </li>
+
     <li class="pv1">
-      <%= link_to 'Fantasy', books_path(genre: "Fantasy"), class: "button is-fullwidth is-secundary" %>
+      <%= link_to 'Horror', books_path(genre: "Horror"), class: "button is-fullwidth is-black" %>
     </li>
+
     <li class="pv1">
-      <%= link_to 'Kids', books_path(genre: "Kids"), class: "button is-fullwidth is-danger" %>
+      <%= link_to 'Fantasy', books_path(genre: "Fantasy"), class: "button is-fullwidth is-primary" %>
     </li>
+
     <li class="pv1">
-      <%= link_to 'Biography', books_path(genre: "Biography"), class: "button is-fullwidth is-dark" %>
+      <%= link_to 'Kids', books_path(genre: "Kids"), class: "button is-fullwidth is-warning" %>
     </li>
+
+    <li class="pv1">
+      <%= link_to 'Romance', books_path(genre: "Romance"), class: "button is-fullwidth is-danger" %>
+    </li>
+
+
+
 
   </ul>
 
