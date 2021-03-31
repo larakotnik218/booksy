@@ -56,6 +56,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mimemagic', '~> 0.3.6'
 gem 'devise'
 gem 'bulma-rails'
+gem 'httparty', '~> 0.13.7'
 gem 'sidekiq'
 gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
