@@ -9,5 +9,6 @@ class HomeController < ApplicationController
     @response = Net::HTTP.get(@uri).to_json
 
     @output = JSON.parse(@response)
+
   end
 end
