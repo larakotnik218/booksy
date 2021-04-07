@@ -56,13 +56,17 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mimemagic', '~> 0.3.6'
 gem 'devise'
 gem 'bulma-rails'
+gem 'json', '~> 2.5', '>= 2.5.1'
+gem 'binding_of_caller', '~> 1.0'
 gem 'sidekiq'
 gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
 gem 'stripe'
 gem 'trix-rails', '~> 2.3'
+gem 'figaro', '~> 1.2'
+gem 'fog-aws', '~> 3.10'
 group :development, :test do
-  gem 'better_errors'
+  gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'guard'
   gem 'guard-livereload'
 end
