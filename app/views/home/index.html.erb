@@ -1,8 +1,11 @@
-<h1>Welcome to <%= Rails.configuration.application_name %>!</h1>
-<p class="lead"> test </p>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <h1 class="title is-3"></h1>
+        <%= render "form" %>
+      </div>
+    </div>
+  </div>
 
-<% if @output == 'var _OLBookInfo = {};' %>
-  <p>I'm sorry. This book doesn't exist in our data...</p>
-<% else %>
-  <%= @output %>
-<% end %>
+</section>

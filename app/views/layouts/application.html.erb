@@ -39,10 +39,11 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="field is-grouped">
-            <p class="control">
-              <%= link_to 'Post new book', new_book_path, class: "navbar-item button is-primary is-rounded" %>
-            </p>
             <% if user_signed_in? %>
+              <p class="control">
+                <%= link_to 'New Book', home_index_path, class: "navbar-item button is-primary is-rounded" %>
+              </p>
+
 
               <div class="navbar-item has-dropdown is-hoverable">
                 <%= link_to 'Account', edit_user_registration_path, class: "navbar-link" %>

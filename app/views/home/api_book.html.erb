@@ -1,0 +1,8 @@
+This are the results
+<% if @output == 'var _OLBookInfo = {};' %>
+  <p>I'm sorry. This book doesn't exist in our data... Check please again the spelling :( </p>
+  <%= link_to 'Try Again', home_index_path, class: "button is-rounded is-primary" %>
+<% else %>
+  <p>Yay! This book is in our data :)</p>
+  <%= link_to 'Post new Book', new_book_path, class: "button is-rounded is-primary" %>
+<% end %>
