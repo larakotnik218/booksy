@@ -1,0 +1,7 @@
+<%= form_with(url: '/api_book', method: 'get', local: true) do |form|%>
+  <div class="form-group">
+    <%= form.text_field :search, required: true, class:"input is-primary" %>
+  </div>
+
+  <%= form.submit 'Submit', class: "button is-primary is-rounded mv4" %>
+<% end %>
