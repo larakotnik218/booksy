@@ -93,9 +93,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {:host => 'booksy-boo.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "127.0.0.1",
-    :port    => 25,
-    :domain  => 'booksy-boo.herokuapp.com'
+    address:"smtp.gmail.com",
+    port: 465,
+    authentication: "plain",
+    domain: 'booksy-boo.herokuapp.com',
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
   }
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
