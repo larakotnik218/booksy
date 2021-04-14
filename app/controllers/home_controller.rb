@@ -1,14 +1,20 @@
 class HomeController < ApplicationController
   def index
+  end
+
+  def api_book
     require 'net/http'
     require 'json'
 
-    @url = 'https://openlibrary.org/api/books?bibkeys=title:The%20Adventures%20of%20Tom%20Sawyer'
-    @uri = URI(@url)
+    name = params[:search]
 
+    @url = "https://openlibrary.org/api/books?bibkeys=title:#{URI.encode(name)}"
+    puts @url
+    @uri = URI(@url)
     @response = Net::HTTP.get(@uri).to_json
 
     @output = JSON.parse(@response)
 
   end
+
 end
