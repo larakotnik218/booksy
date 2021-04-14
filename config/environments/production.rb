@@ -98,7 +98,8 @@ Rails.application.configure do
     authentication: "plain",
     domain: 'booksy-boo.herokuapp.com',
     user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    password: ENV["GMAIL_PASSWORD"],
+    enable_starttls_auto: "true"
   }
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
