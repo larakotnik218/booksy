@@ -1,8 +1,41 @@
-This are the results
-<% if @output == 'var _OLBookInfo = {};' %>
-  <p>I'm sorry. This book doesn't exist in our data... Check please again the spelling :( </p>
+<div class="columns pt4 pb7">
+  <div class="column is-7 is-offset-1">
+
+
+
+<% if @output['items'].nil? %>
+  <p class="title"> I'm sorry. This book doesn't exist in our data... Check please again the spelling :( </p>
   <%= link_to 'Try Again', home_index_path, class: "button is-rounded is-primary" %>
 <% else %>
-  <p>Yay! This book is in our data :)</p>
-  <%= link_to 'Post new Book', new_book_path, class: "button is-rounded is-primary" %>
-<% end %>
+<strong class="title">This are the results: </strong>
+  <% @output['items'].each do |item| %>
+  <div class="tile is-parent is-vertical">
+  <div class="card">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4"><strong>Title: </strong> <%= item['volumeInfo']['title'] %></p>
+      </div>
+    </div>
+
+    <div class="content">
+      <p><strong>Language: </strong> <%= item['volumeInfo']['language'] %></p>
+      <p style="max-width: 100ch; display:inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+        <strong>Description: </strong> <%= item['volumeInfo']['description'] %>
+      </p>
+      <br>
+      <time><strong>Published Date: </strong> <%= item['volumeInfo']['publishedDate'] %></time>
+    </div>
+    <%= link_to 'Choose this', new_book_path, class: "button is-rounded is-primary" %>
+  </div>
+
+  </div>
+  </div>
+
+
+  <% end %> <!--each.do -->
+
+<% end %> <!--else -->
+
+</div>
+</div>
