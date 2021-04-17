@@ -21,8 +21,8 @@
       <%= @book.description.html_safe %>
     </div>
 
-    <%# <%= link_to 'I am interested', books_path, class: "button is-rounded is-large is-fullwidth is-primary" %>
-    <%= mail_to @book.user.email, 'I am interested', class: "button is-rounded is-large is-fullwidth is-primary" %>
+   <%= link_to 'I am interested', contact_index_path, class: "button is-rounded is-large is-fullwidth is-primary" %>
+  <%# <%= mail_to @book.user.email, 'I am interested', class: "button is-rounded is-large is-fullwidth is-primary" %>
   </div>
 
   <div class="column is-2 is-offset-1 has-text-centered">
