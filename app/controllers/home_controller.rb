@@ -8,10 +8,10 @@ class HomeController < ApplicationController
 
     name = params[:search]
 
-    @url = "https://openlibrary.org/api/books?bibkeys=title:#{URI.encode(name)}"
+    @url = "https://www.googleapis.com/books/v1/volumes?q=#{URI.encode(name)}"
     puts @url
     @uri = URI(@url)
-    @response = Net::HTTP.get(@uri).to_json
+    @response = Net::HTTP.get(@uri)
 
     @output = JSON.parse(@response)
 
