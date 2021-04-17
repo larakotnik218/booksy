@@ -1,0 +1,46 @@
+<div class="section">
+  <div class="container">
+  <div class="columns is-centered">
+
+    <div class="column is-7">
+
+    <h2 class="title is-2">Contact with the book seller</h2>
+
+    <%= form_for @contact, url: contact_index_path, remote: true do |f| %>
+
+    <div class="field">
+      <div class="control">
+      <%= f.text_field  :name, required: true, class:"input" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+      <%= f.text_field :email, required: true, class:"input" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= f.text_area :message, required: true, class: "textarea", placeholder: "Send me a message"%>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="hidden">
+        <%= f.text_field :user_email, required: true, class:"input" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= f.submit 'Send Message', class: "button is-primary is-rounded mv4" %>
+      </div>
+    </div>
+
+    <% end %>
+      <br />
+    </div>
+    </div>
+  </div>
+</div>
