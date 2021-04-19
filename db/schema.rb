@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_111451) do
+ActiveRecord::Schema.define(version: 2021_04_19_121648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2021_04_19_111451) do
     t.string "genre"
     t.integer "user_id"
     t.string "book_seller"
+    t.boolean "blacklist"
   end
 
   create_table "contacts", force: :cascade do |t|
