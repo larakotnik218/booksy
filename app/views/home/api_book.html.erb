@@ -9,6 +9,9 @@
 <% else %>
 <strong class="title">This are the results: </strong>
   <% @output['items'].each do |item| %>
+  <% title = item['volumeInfo']['title'] %>
+  <% description = item['volumeInfo']['description'] %>
+  <% publishedDate = item['volumeInfo']['publishedDate'] %>
   <div class="tile is-parent is-vertical">
   <div class="card">
   <div class="card-content">
@@ -26,7 +29,7 @@
       <br>
       <time><strong>Published Date: </strong> <%= item['volumeInfo']['publishedDate'] %></time>
     </div>
-    <%= link_to 'Choose this', new_book_path, class: "button is-rounded is-primary" %>
+    <%= link_to 'Choose this', controller: 'books', action: 'new', title: title, description: description %>
   </div>
 
   </div>

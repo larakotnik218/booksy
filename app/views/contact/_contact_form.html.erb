@@ -10,13 +10,13 @@
 
     <div class="field">
       <div class="control">
-      <%= f.text_field  :name, required: true, class:"input" %>
+      <%= f.text_field  :name, required: true, class:"input", placeholder: "Name" %>
       </div>
     </div>
 
     <div class="field">
       <div class="control">
-      <%= f.text_field :email, required: true, class:"input" %>
+      <%= f.text_field :email, required: true, class:"input", placeholder: "Your email" %>
       </div>
     </div>
 
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="field">
+    <div class="field" style="display:none">
       <div class="hidden">
         <%= f.text_field :user_email, required: true, class:"input" %>
       </div>

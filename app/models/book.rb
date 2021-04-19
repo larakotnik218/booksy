@@ -4,4 +4,5 @@ class Book < ApplicationRecord
 
   GENRES = ["Romance", "Drama","Horror","Crime","Action","Fantasy","Kids","Biography"]
 
+
 end
