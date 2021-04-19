@@ -66,6 +66,7 @@ gem 'trix-rails', '~> 2.3'
 gem 'figaro', '~> 1.2'
 gem 'fog-aws', '~> 3.10'
 gem 'mail_form'
+gem 'activeadmin'
 group :development, :test do
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'guard'
