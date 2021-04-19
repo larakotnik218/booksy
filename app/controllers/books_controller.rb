@@ -18,6 +18,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
+    params = request.query_parameters
     @book = current_user.books.build
   end
 
@@ -68,6 +69,7 @@ class BooksController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
@@ -76,15 +78,7 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :description, :ISBN, :year, :avatar, :genre)
-    end
-
-    def book_in_blacklist
-      if(@book.blacklist == true)
-        @book.destroy
-      else
-        render 'show'
-      end
+      params.require(:book).permit(:title, :description, :ISBN, :year, :avatar, :genre, :blacklist)
     end
 
   end
