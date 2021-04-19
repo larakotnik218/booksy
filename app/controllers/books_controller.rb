@@ -79,5 +79,12 @@ class BooksController < ApplicationController
       params.require(:book).permit(:title, :description, :ISBN, :year, :avatar, :genre)
     end
 
+    def book_in_blacklist
+      if(@book.blacklist == true)
+        @book.destroy
+      else
+        render 'show'
+      end
+    end
 
   end
