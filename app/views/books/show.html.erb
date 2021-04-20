@@ -21,7 +21,27 @@
       <%= @book.description.html_safe %>
     </div>
 
-   <%= link_to 'I am interested', contact_index_path, class: "button is-rounded is-large is-fullwidth is-primary" %>
+  <%= form_with url: "/contact", method: :post do |f| %>
+      <div class="field" style="display:none">
+        <div class="hidden">
+          <%= f.text_field :user_email, class:"input", value: @book.user.email %>
+        </div>
+      </div>
+
+      <div class="field" style="display:none">
+        <div class="hidden">
+          <%= f.text_field :email, class:"input", value: current_user.email %>
+        </div>
+      </div>
+
+      <div class="field" style="display:none">
+        <div class="hidden">
+          <%= f.text_field :name, class:"input", value: current_user.name %>
+        </div>
+      </div>
+      <%= f.submit "I am interested", class: "button is-primary is-rounded mv4 is-fullwidth is-large" %>
+  <% end %>
+   <%# link_to 'I am interested', contact_index_path(:user_email => @book.user.email, :user => current_user.email, :username => current_user.name ), :method => :post %>
   <%# <%= mail_to @book.user.email, 'I am interested', class: "button is-rounded is-large is-fullwidth is-primary" %>
   </div>
 
