@@ -64,8 +64,22 @@ class BooksController < ApplicationController
   end
 
   def pdf
-    require "prawn"
     @books = Book.all.order("created_at desc")
+    require "prawn"
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = Prawn::Document.new
+        books_array = []
+        @books.each do |book|
+          books_array[0] = book.title
+          pdf.text books_array.last
+        end
+        send_data pdf.render,
+          filename: "report.pdf",
+          type: 'application/pdf'
+        end
+      end
   end
 
 

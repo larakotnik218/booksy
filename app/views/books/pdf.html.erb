@@ -3,15 +3,19 @@
     <div class="columns">
       <div class="column is-8 is-offset-2">
         <h2 class="title is-4">Here you can export all your books in PDF</h2>
+                <%= link_to 'Check out the PDF', pdf_path(:format => 'pdf') %>
+                <hr>  
         <% require "prawn"
-        pdf = Prawn::Document.new %>
-          <% @books.each do |book| %>
+        pdf = Prawn::Document.new
+        books_array = [] %>
+          <% @books.each do |book|
+              books_array[0] = book.title
+              pdf.text books_array.last
+          %>
+
 
                 <% if current_user == book.user %>
                     <% if book.blacklist == true %>
-                      <% pdf.text 'Knjiga na blacklisti: ' %>
-                      <% pdf.text book.title, size: 20, color: 'ff0000' %>
-                      <% pdf.text book.genre %>
                       <div class="column">
                         <h3 class="title is-6 index-title">Title: <%= book.title %> <p style="color:red;">Knjiga je na blacklisti!</p></h3>
                         Description:
@@ -24,9 +28,6 @@
                       </div>
 
                     <% else %>
-
-                      <% pdf.text book.title, size: 20 %> <!--  pdf  generated text-->
-                      <% pdf.text book.genre %>
 
                         <div class="column">
                           <h3 class="title is-6 index-title">Title: <%= book.title %></h3>
@@ -46,10 +47,8 @@
 
         <% end %>
 
-        <% pdf.render_file('tmp/books-report.pdf') %>
-        <%# <% send_file 'tmp/books-report.pdf'/to.pdf %>
 
-        <%= link_to 'Check out the PDF', export_index_path %>
+
 
 
       </div>
