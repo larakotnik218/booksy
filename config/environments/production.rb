@@ -104,6 +104,20 @@ Rails.application.configure do
     :tls => true,
     :enable_starttls_auto => true
   }
+
+require File.join(File.dirname(__FILE__), 'boot'
+
+Rails::Initializer.run do |config|
+  config.time_zone = 'UTC'
+
+  config.after_initialize do
+    ActionController::Base.asset_host = Proc.new do |source, request|
+      if request.format == 'pdf'
+        "file://#{Rails.root.join('public')}"
+      end
+    end
+  end
+end
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
   # middleware. The `delay` is used to determine how long to wait after a write
