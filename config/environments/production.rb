@@ -104,6 +104,7 @@ Rails.application.configure do
     :tls => true,
     :enable_starttls_auto => true
   }
+
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
   # middleware. The `delay` is used to determine how long to wait after a write

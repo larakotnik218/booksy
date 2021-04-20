@@ -49,7 +49,7 @@
         <% pdf.render_file('tmp/books-report.pdf') %>
         <%# <% send_file 'tmp/books-report.pdf'/to.pdf %>
 
-        <%# <%= link_to 'Check out' %>
+        <%= link_to 'Check out', controller: 'books', action: 'pdf' %>
 
 
       </div>
