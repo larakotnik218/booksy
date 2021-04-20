@@ -72,8 +72,10 @@ class BooksController < ApplicationController
         pdf = Prawn::Document.new
         books_array = []
         @books.each do |book|
-          books_array[0] = book.title
-          pdf.text books_array.last
+          if current_user == book.user
+            books_array[0] = book.title
+            pdf.text books_array.last
+          end
         end
         send_data pdf.render,
           filename: "report.pdf",
