@@ -1,0 +1,54 @@
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <h2 class="title is-4">Here you can export all your books in PDF</h2>
+        <% require "prawn"
+        pdf = Prawn::Document.new %>
+          <% @books.each do |book| %>
+
+                <% if current_user == book.user %>
+                    <% if book.blacklist == true %>
+                      <% pdf.text 'Knjiga na blacklisti: ' %>
+                      <% pdf.text book.title, size: 20, color: 'ff0000' %>
+                      <% pdf.text book.genre %>
+                      <div class="column">
+                        <h3 class="title is-6 index-title">Title: <%= book.title %> <p style="color:red;">Knjiga je na blacklisti!</p></h3>
+                        Description:
+                        <%= book.description %><br>
+
+                        <h3 class="title is-6 index-title">Year: <%= book.year %></h3>
+
+                        <%= genre(book.genre) %>
+                        <hr>
+                      </div>
+
+                    <% else %>
+
+                      <% pdf.text book.title, size: 20 %> <!--  pdf  generated text-->
+                      <% pdf.text book.genre %>
+
+                        <div class="column">
+                          <h3 class="title is-6 index-title">Title: <%= book.title %></h3>
+                          Description:
+                          <%= book.description %><br>
+
+                          <h3 class="title is-6 index-title">Year: <%= book.year %></h3>
+
+                          <%= genre(book.genre) %>
+                          <hr>
+                        </div>
+                    <% end %>
+
+
+                <% end %>
+
+
+        <% end %>
+
+        <% pdf.render_file('books-report.pdf') %>
+      </div>
+    </div>
+  </div>
+
+</section>
