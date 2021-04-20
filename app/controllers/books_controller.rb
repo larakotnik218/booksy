@@ -66,6 +66,18 @@ class BooksController < ApplicationController
   def pdf
     require "prawn"
     @books = Book.all.order("created_at desc")
+    respond_to do |format|
+      format.html
+      format.pdf do
+        require "prawn/measurement_extensions"
+        pdf.text "Helloo World"
+        send_file pdf.render,
+          filename: "report.pdf",
+          type: 'application/pdf',
+          disposition: 'inline'
+        end
+      end
+
   end
 
 
