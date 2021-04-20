@@ -30,12 +30,6 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.build(book_params)
 
-
-
-
-
-
-
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: "Book was successfully created." }
@@ -67,6 +61,11 @@ class BooksController < ApplicationController
       format.html { redirect_to books_url, notice: "Book was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def pdf
+    require "prawn"
+    @books = Book.all.order("created_at desc")
   end
 
 
