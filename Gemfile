@@ -68,6 +68,7 @@ gem 'fog-aws', '~> 3.10'
 gem 'mail_form'
 gem 'activeadmin'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'prawn', '~> 2.4'
 group :development, :test do
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'guard'
