@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :books
   resources :home
   resources :contact, only: [:index, :new, :create]
+  resources :export
   devise_for :users
   root to: 'books#index'
 
