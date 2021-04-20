@@ -367,6 +367,7 @@ DEPENDENCIES
   guard
   guard-livereload
   jbuilder (~> 2.7)
+  jquery-rails (~> 4.3, >= 4.3.1)
   json (~> 2.5, >= 2.5.1)
   listen (~> 3.2)
   mail_form

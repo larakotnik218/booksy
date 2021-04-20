@@ -4,6 +4,7 @@ class ContactController < ApplicationController
 
 
   def index
+    params = request.query_parameters
     @contact = Contact.new(params[:contact])
   end
 
