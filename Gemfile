@@ -69,8 +69,13 @@ gem 'mail_form'
 gem 'activeadmin'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'prawn', '~> 2.4'
+gem 'prawn-rails', '~> 1.4'
 group :development, :test do
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'guard'
   gem 'guard-livereload'
+end
+
+group :staging, :production do
+  gem "wkhtmltopdf-heroku"
 end
