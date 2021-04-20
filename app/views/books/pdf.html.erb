@@ -46,7 +46,12 @@
 
         <% end %>
 
-        <% pdf.render_file('books-report.pdf') %>
+        <% pdf.render_file('tmp/books-report.pdf') %>
+        <%# <% send_file 'tmp/books-report.pdf'/to.pdf %>
+
+        <%# <%= link_to 'Check out' %>
+
+
       </div>
     </div>
   </div>
